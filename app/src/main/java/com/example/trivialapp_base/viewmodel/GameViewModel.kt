@@ -8,6 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.trivialapp_base.model.Pregunta
+import com.example.trivialapp_base.model.ProveedorPreguntas
 
 class GameViewModel : ViewModel() {
     private var preguntasPartida: List<Pregunta> = emptyList()
@@ -23,7 +24,7 @@ class GameViewModel : ViewModel() {
     var puntuacion by mutableIntStateOf(0)
         private set
 
-    var tiempoRestante by mutableFloatStateOf(100f)
+    var tiempoRestante by mutableFloatStateOf(1f)
         private set
 
     var juegoTerminado by mutableStateOf(false)
@@ -39,20 +40,67 @@ class GameViewModel : ViewModel() {
         dificultadSeleccionada = dificultad // Sense .value!
     }
     fun iniciarJuego() {
+        preguntasPartida = ProveedorPreguntas.obtenerPreguntas()
+            .filter { it.dificultad == dificultadSeleccionada }
+            .shuffled()
+            .take(10)
+
+        puntuacion = 0
+        indicePreguntaActual = 0
+        juegoTerminado = false
+
+        cargarSiguientePregunta()
     }
 
     private fun cargarSiguientePregunta() {
+        if (indicePreguntaActual < preguntasPartida.size) {
+
+            val pregunta = preguntasPartida[indicePreguntaActual]
+            preguntaActual = pregunta
+
+            respuestasMezcladas = listOf(
+                pregunta.respuesta1,
+                pregunta.respuesta2,
+                pregunta.respuesta3,
+                pregunta.respuesta4
+            ).shuffled()
+
+            iniciarTimer()
+        } else {
+            juegoTerminado = true
+            timer?.cancel()
+        }
     }
 
     fun responderPregunta(respuestaUsuario: String) {
+        timer?.cancel()
+        if (respuestaUsuario == preguntaActual?.respuestaCorrecta) {
+            puntuacion += 10
+        }
+        avanzarRonda()
     }
 
     private fun avanzarRonda() {
+        indicePreguntaActual++
+        cargarSiguientePregunta()
     }
 
     private fun iniciarTimer() {
+        timer?.cancel()
+        timer = object : CountDownTimer(TIEMPO_POR_PREGUNTA, 100) {
+            override fun onTick(millisUntilFinished: Long) {
+                tiempoRestante = millisUntilFinished.toFloat() / TIEMPO_POR_PREGUNTA
+            }
+
+            override fun onFinish() {
+                tiempoRestante = 0f
+                avanzarRonda()
+            }
+        }
     }
 
     override fun onCleared() {
+        super.onCleared()
+        timer?.cancel()
     }
 }
