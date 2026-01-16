@@ -15,19 +15,42 @@ data class Pregunta(
 // Objeto para simular la base de datos local (Hardcoded)
 object ProveedorPreguntas {
     fun obtenerPreguntas(): MutableList<Pregunta> {
-        return mutableListOf(
-            Pregunta("¿Capital de Francia?", "Geografía", "Facil", "Madrid", "París", "Berlin", "Roma", "París"),
-            Pregunta("¿Fórmula del agua?", "Ciencia", "Facil", "H2O", "CO2", "O2", "H2O2", "H2O"),
-            Pregunta("¿Quién pintó la Mona Lisa?", "Arte", "Medio", "Picasso", "Van Gogh", "Da Vinci", "Dalí", "Da Vinci"),
-            Pregunta("¿Planeta más grande?", "Ciencia", "Medio", "Tierra", "Marte", "Júpiter", "Saturno", "Júpiter"),
-            Pregunta("¿Año descubrimiento América?", "Historia", "Medio", "1492", "1500", "1485", "1992", "1492"),
-            Pregunta("¿Elemento químico Au?", "Química", "Dificil", "Plata", "Oro", "Cobre", "Aluminio", "Oro"),
-            Pregunta("¿Autor del Quijote?", "Literatura", "Facil", "Cervantes", "Quevedo", "Lope", "Góngora", "Cervantes"),
-            Pregunta("¿Velocidad de la luz?", "Física", "Dificil", "300.000 km/s", "150.000 km/s", "1000 km/s", "Mach 1", "300.000 km/s"),
-            Pregunta("¿Moneda de Japón?", "Economía", "Medio", "Yuan", "Won", "Yen", "Dólar", "Yen"),
-            Pregunta("¿Campeón mundial fútbol 2010?", "Deportes", "Facil", "Brasil", "Alemania", "España", "Italia", "España"),
-            Pregunta("¿Rey de los dioses griegos?", "Mitología", "Facil", "Zeus", "Hades", "Poseidón", "Ares", "Zeus"),
-            Pregunta("¿Hueso más largo del cuerpo?", "Anatomía", "Medio", "Fémur", "Tibia", "Húmero", "Radio", "Fémur")
-        )
+        val lista = mutableListOf<Pregunta>()
+
+        /**
+         * Generates generic debug questions.
+         * Question: "Debug #ID"
+         * Result 2 is always the correct one, marked with parenthesis.
+         */
+        fun addDebug(id: Int, dif: String) {
+            val r1 = "Result 1"
+            val r2 = "(Correcto) Result 2"
+            val r3 = "Result 3"
+            val r4 = "Result 4"
+            
+            val correct = r2
+            // Shuffle so the correct answer (r2) is not always in the same button
+            val opciones = listOf(r1, r2, r3, r4).shuffled()
+            
+            lista.add(
+                Pregunta(
+                    pregunta = "Debug #$id",
+                    categoria = "Testing",
+                    dificultad = dif,
+                    respuesta1 = opciones[0],
+                    respuesta2 = opciones[1],
+                    respuesta3 = opciones[2],
+                    respuesta4 = opciones[3],
+                    respuestaCorrecta = correct
+                )
+            )
+        }
+
+        // Add 10 questions for each difficulty
+        for (i in 1..10) addDebug(i, "Facil")
+        for (i in 11..20) addDebug(i, "Medio")
+        for (i in 21..30) addDebug(i, "Dificil")
+
+        return lista
     }
 }

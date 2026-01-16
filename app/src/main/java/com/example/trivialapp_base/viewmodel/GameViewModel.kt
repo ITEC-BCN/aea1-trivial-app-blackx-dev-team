@@ -10,6 +10,11 @@ import androidx.lifecycle.ViewModel
 import com.example.trivialapp_base.model.Pregunta
 import com.example.trivialapp_base.model.ProveedorPreguntas
 
+data class ResultadoPregunta(
+    val pregunta: Pregunta,
+    val respuestaUsuario: String
+)
+
 class GameViewModel : ViewModel() {
     private var preguntasPartida: List<Pregunta> = emptyList()
     var indicePreguntaActual by mutableIntStateOf(0)
@@ -33,12 +38,16 @@ class GameViewModel : ViewModel() {
     var dificultadSeleccionada by mutableStateOf("Facil")
         private set
 
+    var historialResultados by mutableStateOf<List<ResultadoPregunta>>(emptyList())
+        private set
+
     private var timer: CountDownTimer? = null
     private val TIEMPO_POR_PREGUNTA = 10000L // 10 segons
 
     fun setDificultad(dificultad: String) {
-        dificultadSeleccionada = dificultad // Sense .value!
+        dificultadSeleccionada = dificultad
     }
+
     fun iniciarJuego() {
         preguntasPartida = ProveedorPreguntas.obtenerPreguntas()
             .filter { it.dificultad == dificultadSeleccionada }
@@ -48,13 +57,13 @@ class GameViewModel : ViewModel() {
         puntuacion = 0
         indicePreguntaActual = 0
         juegoTerminado = false
+        historialResultados = emptyList()
 
         cargarSiguientePregunta()
     }
 
     private fun cargarSiguientePregunta() {
         if (indicePreguntaActual < preguntasPartida.size) {
-
             val pregunta = preguntasPartida[indicePreguntaActual]
             preguntaActual = pregunta
 
@@ -74,8 +83,11 @@ class GameViewModel : ViewModel() {
 
     fun responderPregunta(respuestaUsuario: String) {
         timer?.cancel()
-        if (respuestaUsuario == preguntaActual?.respuestaCorrecta) {
-            puntuacion += 10
+        preguntaActual?.let {
+            historialResultados = historialResultados + ResultadoPregunta(it, respuestaUsuario)
+            if (respuestaUsuario == it.respuestaCorrecta) {
+                puntuacion += 10
+            }
         }
         avanzarRonda()
     }
@@ -94,9 +106,9 @@ class GameViewModel : ViewModel() {
 
             override fun onFinish() {
                 tiempoRestante = 0f
-                avanzarRonda()
+                responderPregunta("") // Se agota el tiempo, respuesta vacía
             }
-        }
+        }.start()
     }
 
     override fun onCleared() {
