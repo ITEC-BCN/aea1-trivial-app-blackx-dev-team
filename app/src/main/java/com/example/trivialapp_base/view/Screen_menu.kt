@@ -25,7 +25,7 @@ fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Trivial APP",
+            text = "BeerVial APP",
             fontSize = 48.sp,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary
