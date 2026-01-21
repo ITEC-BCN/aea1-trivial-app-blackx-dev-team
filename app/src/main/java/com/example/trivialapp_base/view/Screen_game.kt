@@ -27,6 +27,15 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
 
     var showExitDialog by remember { mutableStateOf(false) }
 
+    val requestExit = { showExitDialog = true }
+    val cancelExit = { showExitDialog = false }
+    val confirmExit = {
+        showExitDialog = false
+        navController.navigate(Routes.Menu.route) {
+            popUpTo(Routes.Game.route) { inclusive = true }
+        }
+    }
+
     val animatedProgress by animateFloatAsState(
         targetValue = tiempo,
         animationSpec = tween(durationMillis = 100),
@@ -34,8 +43,8 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
     )
 
     // Intercept back button
-    BackHandler {
-        showExitDialog = true
+    BackHandler(enabled = !showExitDialog) {
+        requestExit()
     }
 
     // Observe if the game is over to navigate to result screen
@@ -49,27 +58,30 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
 
     if (showExitDialog) {
         AlertDialog(
-            onDismissRequest = { showExitDialog = false },
+            onDismissRequest = { cancelExit() },
             title = { Text("¿Salir del juego?") },
             text = { Text("Se perderá todo el progreso actual.") },
             confirmButton = {
-                TextButton(onClick = { navController.navigate(Routes.Menu.route) }) {
+                TextButton(onClick = { confirmExit() }) {
                     Text("Salir")
                 }
             },
             dismissButton = {
-                TextButton(onClick = { showExitDialog = false }) {
+                TextButton(onClick = { cancelExit() }) {
                     Text("Cancelar")
                 }
             }
         )
     }
 
+
     if (preguntaActual != null) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp),
+                .padding(16.dp)
+                .padding(top = 32.dp),
+
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // Top Bar
@@ -78,7 +90,7 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                IconButton(onClick = { showExitDialog = true }) {
+                IconButton(onClick = { requestExit() }) {
                     Icon(imageVector = Icons.Default.Close, contentDescription = "Salir")
                 }
             }
