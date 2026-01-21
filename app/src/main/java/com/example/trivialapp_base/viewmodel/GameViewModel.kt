@@ -16,6 +16,7 @@ data class ResultadoPregunta(
 )
 
 class GameViewModel : ViewModel() {
+
     private var preguntasPartida: List<Pregunta> = emptyList()
     var indicePreguntaActual by mutableIntStateOf(0)
         private set
@@ -43,7 +44,7 @@ class GameViewModel : ViewModel() {
 
     private var timer: CountDownTimer? = null
     private val TIEMPO_POR_PREGUNTA = 10000L // 10 segons
-
+    
     fun setDificultad(dificultad: String) {
         dificultadSeleccionada = dificultad
     }
@@ -76,6 +77,7 @@ class GameViewModel : ViewModel() {
 
             iniciarTimer()
         } else {
+            preguntaActual = null
             juegoTerminado = true
             timer?.cancel()
         }
