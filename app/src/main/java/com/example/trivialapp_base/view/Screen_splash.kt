@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -48,5 +49,18 @@ fun SplashScreen(navController: NavController) {
                 color = MaterialTheme.colorScheme.primary
             )
         }
+        Box(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Text(
+                text = "© Todos los derechos reservados, BlackX dev team",
+                fontSize = 13.sp,
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 8.dp),
+                color = Color.Gray
+            )
+        }
+
     }
 }

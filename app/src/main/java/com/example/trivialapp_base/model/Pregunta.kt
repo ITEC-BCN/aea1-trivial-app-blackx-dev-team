@@ -45,8 +45,6 @@ object ProveedorPreguntas {
             Pregunta("¿Número romano V?", "Historia", "Facil", "1", "5", "10", "50", "5"),
             Pregunta("¿Ingrediente principal de la cerveza?", "Cerveza", "Facil", "Uvas", "Lúpulo", "Arroz", "Trigo", "Lúpulo"),
             Pregunta("¿Bebida alcohólica fermentada de cebada?", "Cerveza", "Facil", "Vino", "Cerveza", "Sidra", "Ron", "Cerveza"),
-            Pregunta("¿Cerveza con sabor más dulce y suave?", "Cerveza", "Facil", "Stout", "Pale Ale", "Lager", "IPA", "Lager"),
-
 
             // ==================== MEDIO (30) ====================
             Pregunta("¿Planeta más grande?", "Ciencia", "Medio", "Tierra", "Marte", "Júpiter", "Saturno", "Júpiter"),
@@ -64,9 +62,8 @@ object ProveedorPreguntas {
             Pregunta("¿Principal gas atmósfera?", "Ciencia", "Medio", "Oxígeno", "Nitrógeno", "CO2", "Hidrógeno", "Nitrógeno"),
             Pregunta("¿Autor de El Principito?", "Literatura", "Medio", "Saint-Exupéry", "Verne", "Hugo", "Camus", "Saint-Exupéry"),
             Pregunta("¿País inventor de la cerveza Pilsner?", "Cerveza", "Medio", "Alemania", "República Checa", "Bélgica", "Irlanda", "República Checa"),
-            Pregunta("¿Cerveza con alta fermentación?", "Cerveza", "Medio", "Lager", "Ale", "Pilsner", "Stout", "Ale"),
             Pregunta("¿Tipo de cerveza muy oscura y fuerte?", "Cerveza", "Medio", "Lager", "IPA", "Stout", "Pale Ale", "Stout"),
-
+            Pregunta("¿Qué gas se utiliza para dar carbonatación a la cerveza?", "Cerveza", "Facil", "Oxígeno", "Nitrógeno", "Dióxido de carbono", "Helio", "Dióxido de carbono"),
 
             // ==================== DIFÍCIL (30) ====================
             Pregunta("¿Velocidad de la luz?", "Física", "Dificil", "150.000 km/s", "300.000 km/s", "1.000 km/s", "30.000 km/s", "300.000 km/s"),
@@ -86,7 +83,8 @@ object ProveedorPreguntas {
             Pregunta("¿Obra de Maquiavelo?", "Filosofía", "Dificil", "El Príncipe", "Utopía", "República", "Contrato Social", "El Príncipe"),
             Pregunta("¿Componente que da amargor a la cerveza?", "Cerveza", "Dificil", "Malta", "Lúpulo", "Levadura", "Agua", "Lúpulo"),
             Pregunta("¿Cerveza con fermentación mixta y sabor ácido?", "Cerveza", "Dificil", "Lager", "Sour", "Ale", "Stout", "Sour"),
-            Pregunta("¿Proceso de calentar malta y agua para extraer azúcares?", "Cerveza", "Dificil", "Lúpulo", "Maceración", "Fermentación", "Filtrado", "Maceración")
+            Pregunta("¿Proceso de calentar malta y agua para extraer azúcares?", "Cerveza", "Dificil", "Lúpulo", "Maceración", "Fermentación", "Filtrado", "Maceración"),
+            Pregunta("¿Cómo se llama el proceso de calentar la malta para extraer azúcares?", "Cerveza", "Dificil", "Fermentación", "Maceración", "Destilación", "Filtración", "Maceración"),
         )
     }
 }
