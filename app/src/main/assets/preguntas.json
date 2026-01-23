@@ -1,0 +1,902 @@
+[
+  {
+    "pregunta": "¿Capital de Francia?",
+    "categoria": "Humanidades",
+    "dificultad": "Facil",
+    "respuesta1": "Madrid",
+    "respuesta2": "París",
+    "respuesta3": "Roma",
+    "respuesta4": "Berlín",
+    "respuestaCorrecta": "París"
+  },
+  {
+    "pregunta": "¿Fórmula del agua?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "H2O",
+    "respuesta2": "CO2",
+    "respuesta3": "O2",
+    "respuesta4": "H2O2",
+    "respuestaCorrecta": "H2O"
+  },
+  {
+    "pregunta": "¿Autor del Quijote?",
+    "categoria": "Humanidades",
+    "dificultad": "Facil",
+    "respuesta1": "Cervantes",
+    "respuesta2": "Quevedo",
+    "respuesta3": "Lope",
+    "respuesta4": "Góngora",
+    "respuestaCorrecta": "Cervantes"
+  },
+  {
+    "pregunta": "¿Planeta rojo?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "Marte",
+    "respuesta2": "Júpiter",
+    "respuesta3": "Venus",
+    "respuesta4": "Saturno",
+    "respuestaCorrecta": "Marte"
+  },
+  {
+    "pregunta": "¿Rey de los dioses griegos?",
+    "categoria": "Humanidades",
+    "dificultad": "Facil",
+    "respuesta1": "Zeus",
+    "respuesta2": "Hades",
+    "respuesta3": "Ares",
+    "respuesta4": "Apolo",
+    "respuestaCorrecta": "Zeus"
+  },
+  {
+    "pregunta": "¿Animal que ladra?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "Gato",
+    "respuesta2": "Perro",
+    "respuesta3": "Vaca",
+    "respuesta4": "Caballo",
+    "respuestaCorrecta": "Perro"
+  },
+  {
+    "pregunta": "¿Color del cielo despejado?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "Verde",
+    "respuesta2": "Rojo",
+    "respuesta3": "Azul",
+    "respuesta4": "Amarillo",
+    "respuestaCorrecta": "Azul"
+  },
+  {
+    "pregunta": "¿Cuántos días tiene una semana?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "5",
+    "respuesta2": "6",
+    "respuesta3": "7",
+    "respuesta4": "8",
+    "respuestaCorrecta": "7"
+  },
+  {
+    "pregunta": "¿Lenguaje oficial de Android?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "Swift",
+    "respuesta2": "Kotlin",
+    "respuesta3": "PHP",
+    "respuesta4": "Ruby",
+    "respuestaCorrecta": "Kotlin"
+  },
+  {
+    "pregunta": "¿Mamífero más grande?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "Elefante",
+    "respuesta2": "Ballena azul",
+    "respuesta3": "Rinoceronte",
+    "respuesta4": "Hipopótamo",
+    "respuestaCorrecta": "Ballena azul"
+  },
+  {
+    "pregunta": "¿Resultado de 2+2?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "3",
+    "respuesta2": "4",
+    "respuesta3": "5",
+    "respuesta4": "6",
+    "respuestaCorrecta": "4"
+  },
+  {
+    "pregunta": "¿Mes con Navidad?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "Enero",
+    "respuesta2": "Febrero",
+    "respuesta3": "Diciembre",
+    "respuesta4": "Marzo",
+    "respuestaCorrecta": "Diciembre"
+  },
+  {
+    "pregunta": "¿Deporte de Messi?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "Tenis",
+    "respuesta2": "Fútbol",
+    "respuesta3": "Baloncesto",
+    "respuesta4": "Golf",
+    "respuestaCorrecta": "Fútbol"
+  },
+  {
+    "pregunta": "¿Animal que maúlla?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "Perro",
+    "respuesta2": "Gato",
+    "respuesta3": "León",
+    "respuesta4": "Tigre",
+    "respuestaCorrecta": "Gato"
+  },
+  {
+    "pregunta": "¿Día después del lunes?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "Domingo",
+    "respuesta2": "Martes",
+    "respuesta3": "Viernes",
+    "respuesta4": "Sábado",
+    "respuestaCorrecta": "Martes"
+  },
+  {
+    "pregunta": "¿Océano más grande?",
+    "categoria": "Humanidades",
+    "dificultad": "Facil",
+    "respuesta1": "Atlántico",
+    "respuesta2": "Índico",
+    "respuesta3": "Pacífico",
+    "respuesta4": "Ártico",
+    "respuestaCorrecta": "Pacífico"
+  },
+  {
+    "pregunta": "¿Moneda de EE.UU.?",
+    "categoria": "Humanidades",
+    "dificultad": "Facil",
+    "respuesta1": "Euro",
+    "respuesta2": "Dólar",
+    "respuesta3": "Yen",
+    "respuesta4": "Libra",
+    "respuestaCorrecta": "Dólar"
+  },
+  {
+    "pregunta": "¿Forma de la Tierra?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "Plana",
+    "respuesta2": "Cuadrada",
+    "respuesta3": "Redonda",
+    "respuesta4": "Triangular",
+    "respuestaCorrecta": "Redonda"
+  },
+  {
+    "pregunta": "¿Color de la sangre?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "Azul",
+    "respuesta2": "Rojo",
+    "respuesta3": "Verde",
+    "respuesta4": "Negro",
+    "respuestaCorrecta": "Rojo"
+  },
+  {
+    "pregunta": "¿Héroe de Gotham?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "Superman",
+    "respuesta2": "Batman",
+    "respuesta3": "Spiderman",
+    "respuesta4": "Iron Man",
+    "respuestaCorrecta": "Batman"
+  },
+  {
+    "pregunta": "¿Animal más rápido?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "León",
+    "respuesta2": "Guepardo",
+    "respuesta3": "Tigre",
+    "respuesta4": "Caballo",
+    "respuestaCorrecta": "Guepardo"
+  },
+  {
+    "pregunta": "¿Idioma de Brasil?",
+    "categoria": "Humanidades",
+    "dificultad": "Facil",
+    "respuesta1": "Español",
+    "respuesta2": "Portugués",
+    "respuesta3": "Inglés",
+    "respuesta4": "Francés",
+    "respuestaCorrecta": "Portugués"
+  },
+  {
+    "pregunta": "¿Estación más fría?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "Verano",
+    "respuesta2": "Otoño",
+    "respuesta3": "Invierno",
+    "respuesta4": "Primavera",
+    "respuestaCorrecta": "Invierno"
+  },
+  {
+    "pregunta": "¿Instrumento con teclas?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "Guitarra",
+    "respuesta2": "Piano",
+    "respuesta3": "Violín",
+    "respuesta4": "Flauta",
+    "respuestaCorrecta": "Piano"
+  },
+  {
+    "pregunta": "¿Número romano V?",
+    "categoria": "Humanidades",
+    "dificultad": "Facil",
+    "respuesta1": "1",
+    "respuesta2": "5",
+    "respuesta3": "10",
+    "respuesta4": "50",
+    "respuestaCorrecta": "5"
+  },
+  {
+    "pregunta": "¿Ingrediente principal de la cerveza?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "Uvas",
+    "respuesta2": "Lúpulo",
+    "respuesta3": "Arroz",
+    "respuesta4": "Trigo",
+    "respuestaCorrecta": "Lúpulo"
+  },
+  {
+    "pregunta": "¿Bebida fermentada de cebada?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "Vino",
+    "respuesta2": "Cerveza",
+    "respuesta3": "Sidra",
+    "respuesta4": "Ron",
+    "respuestaCorrecta": "Cerveza"
+  },
+  {
+    "pregunta": "¿Instrumento para medir temperatura?",
+    "categoria": "Ciencia",
+    "dificultad": "Facil",
+    "respuesta1": "Barómetro",
+    "respuesta2": "Termómetro",
+    "respuesta3": "Cronómetro",
+    "respuesta4": "Higrómetro",
+    "respuestaCorrecta": "Termómetro"
+  },
+  {
+    "pregunta": "¿Continente de Egipto?",
+    "categoria": "Humanidades",
+    "dificultad": "Facil",
+    "respuesta1": "Asia",
+    "respuesta2": "Europa",
+    "respuesta3": "África",
+    "respuesta4": "América",
+    "respuestaCorrecta": "África"
+  },
+  {
+    "pregunta": "¿Color del caballo blanco de Santiago?",
+    "categoria": "General",
+    "dificultad": "Facil",
+    "respuesta1": "Negro",
+    "respuesta2": "Marrón",
+    "respuesta3": "Blanco",
+    "respuesta4": "Gris",
+    "respuestaCorrecta": "Blanco"
+  },
+  {
+    "pregunta": "¿Planeta más grande?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Tierra",
+    "respuesta2": "Marte",
+    "respuesta3": "Júpiter",
+    "respuesta4": "Saturno",
+    "respuestaCorrecta": "Júpiter"
+  },
+  {
+    "pregunta": "¿Año descubrimiento América?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "1492",
+    "respuesta2": "1500",
+    "respuesta3": "1485",
+    "respuesta4": "1600",
+    "respuestaCorrecta": "1492"
+  },
+  {
+    "pregunta": "¿Hueso más largo?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Tibia",
+    "respuesta2": "Húmero",
+    "respuesta3": "Fémur",
+    "respuesta4": "Radio",
+    "respuestaCorrecta": "Fémur"
+  },
+  {
+    "pregunta": "¿Moneda de Japón?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "Yuan",
+    "respuesta2": "Won",
+    "respuesta3": "Yen",
+    "respuesta4": "Dólar",
+    "respuestaCorrecta": "Yen"
+  },
+  {
+    "pregunta": "¿Autor de Hamlet?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "Shakespeare",
+    "respuesta2": "Cervantes",
+    "respuesta3": "Dante",
+    "respuesta4": "Molière",
+    "respuestaCorrecta": "Shakespeare"
+  },
+  {
+    "pregunta": "¿Órgano que bombea sangre?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Pulmón",
+    "respuesta2": "Cerebro",
+    "respuesta3": "Corazón",
+    "respuesta4": "Riñón",
+    "respuestaCorrecta": "Corazón"
+  },
+  {
+    "pregunta": "¿Autor de La Odisea?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "Homero",
+    "respuesta2": "Platón",
+    "respuesta3": "Sófocles",
+    "respuesta4": "Aristóteles",
+    "respuestaCorrecta": "Homero"
+  },
+  {
+    "pregunta": "¿Metal líquido a temp. ambiente?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Plomo",
+    "respuesta2": "Mercurio",
+    "respuesta3": "Aluminio",
+    "respuesta4": "Zinc",
+    "respuestaCorrecta": "Mercurio"
+  },
+  {
+    "pregunta": "¿Animal ovíparo?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Perro",
+    "respuesta2": "Vaca",
+    "respuesta3": "Gallina",
+    "respuesta4": "Delfín",
+    "respuestaCorrecta": "Gallina"
+  },
+  {
+    "pregunta": "¿Autor de 1984?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "Orwell",
+    "respuesta2": "Huxley",
+    "respuesta3": "Bradbury",
+    "respuesta4": "Asimov",
+    "respuestaCorrecta": "Orwell"
+  },
+  {
+    "pregunta": "¿Unidad de fuerza?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Watt",
+    "respuesta2": "Newton",
+    "respuesta3": "Joule",
+    "respuesta4": "Pascal",
+    "respuestaCorrecta": "Newton"
+  },
+  {
+    "pregunta": "¿Órgano de la vista?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Nariz",
+    "respuesta2": "Ojo",
+    "respuesta3": "Oído",
+    "respuesta4": "Lengua",
+    "respuestaCorrecta": "Ojo"
+  },
+  {
+    "pregunta": "¿Principal gas atmósfera?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Oxígeno",
+    "respuesta2": "Nitrógeno",
+    "respuesta3": "CO2",
+    "respuesta4": "Hidrógeno",
+    "respuestaCorrecta": "Nitrógeno"
+  },
+  {
+    "pregunta": "¿Autor de El Principito?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "Saint-Exupéry",
+    "respuesta2": "Verne",
+    "respuesta3": "Hugo",
+    "respuesta4": "Camus",
+    "respuestaCorrecta": "Saint-Exupéry"
+  },
+  {
+    "pregunta": "¿País inventor cerveza Pilsner?",
+    "categoria": "General",
+    "dificultad": "Medio",
+    "respuesta1": "Alemania",
+    "respuesta2": "República Checa",
+    "respuesta3": "Bélgica",
+    "respuesta4": "Irlanda",
+    "respuestaCorrecta": "República Checa"
+  },
+  {
+    "pregunta": "¿Cerveza muy oscura y fuerte?",
+    "categoria": "General",
+    "dificultad": "Medio",
+    "respuesta1": "Lager",
+    "respuesta2": "IPA",
+    "respuesta3": "Stout",
+    "respuesta4": "Pale Ale",
+    "respuestaCorrecta": "Stout"
+  },
+  {
+    "pregunta": "¿Gas para carbonatar cerveza?",
+    "categoria": "General",
+    "dificultad": "Medio",
+    "respuesta1": "Oxígeno",
+    "respuesta2": "Nitrógeno",
+    "respuesta3": "Dióxido de carbono",
+    "respuesta4": "Helio",
+    "respuestaCorrecta": "Dióxido de carbono"
+  },
+  {
+    "pregunta": "¿Símbolo químico del Oro?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Ag",
+    "respuesta2": "Au",
+    "respuesta3": "Fe",
+    "respuesta4": "Or",
+    "respuestaCorrecta": "Au"
+  },
+  {
+    "pregunta": "¿Capital de Australia?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "Sídney",
+    "respuesta2": "Melbourne",
+    "respuesta3": "Canberra",
+    "respuesta4": "Perth",
+    "respuestaCorrecta": "Canberra"
+  },
+  {
+    "pregunta": "¿Director de Jurassic Park?",
+    "categoria": "General",
+    "dificultad": "Medio",
+    "respuesta1": "Lucas",
+    "respuesta2": "Spielberg",
+    "respuesta3": "Cameron",
+    "respuesta4": "Nolan",
+    "respuestaCorrecta": "Spielberg"
+  },
+  {
+    "pregunta": "¿Año caída muro Berlín?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "1980",
+    "respuesta2": "1989",
+    "respuesta3": "1991",
+    "respuesta4": "1975",
+    "respuestaCorrecta": "1989"
+  },
+  {
+    "pregunta": "¿Moneda de Reino Unido?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "Euro",
+    "respuesta2": "Libra",
+    "respuesta3": "Franco",
+    "respuesta4": "Marco",
+    "respuestaCorrecta": "Libra"
+  },
+  {
+    "pregunta": "¿Quién pintó la Mona Lisa?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "Miguel Ángel",
+    "respuesta2": "Da Vinci",
+    "respuesta3": "Rafael",
+    "respuesta4": "Donatello",
+    "respuestaCorrecta": "Da Vinci"
+  },
+  {
+    "pregunta": "¿Triángulo con 3 lados iguales?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Isósceles",
+    "respuesta2": "Escaleno",
+    "respuesta3": "Equilátero",
+    "respuesta4": "Rectángulo",
+    "respuestaCorrecta": "Equilátero"
+  },
+  {
+    "pregunta": "¿Jugadores en equipo fútbol?",
+    "categoria": "General",
+    "dificultad": "Medio",
+    "respuesta1": "10",
+    "respuesta2": "11",
+    "respuesta3": "12",
+    "respuesta4": "9",
+    "respuestaCorrecta": "11"
+  },
+  {
+    "pregunta": "¿Dios romano de la guerra?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "Júpiter",
+    "respuesta2": "Marte",
+    "respuesta3": "Neptuno",
+    "respuesta4": "Venus",
+    "respuestaCorrecta": "Marte"
+  },
+  {
+    "pregunta": "¿Gas necesario para respirar?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Hidrógeno",
+    "respuesta2": "Oxígeno",
+    "respuesta3": "Helio",
+    "respuesta4": "Metano",
+    "respuestaCorrecta": "Oxígeno"
+  },
+  {
+    "pregunta": "¿País de origen de la pizza?",
+    "categoria": "General",
+    "dificultad": "Medio",
+    "respuesta1": "Francia",
+    "respuesta2": "Italia",
+    "respuesta3": "EE.UU.",
+    "respuesta4": "Grecia",
+    "respuestaCorrecta": "Italia"
+  },
+  {
+    "pregunta": "¿Satélite natural de la Tierra?",
+    "categoria": "Ciencia",
+    "dificultad": "Medio",
+    "respuesta1": "Luna",
+    "respuesta2": "Titán",
+    "respuesta3": "Europa",
+    "respuesta4": "Ío",
+    "respuestaCorrecta": "Luna"
+  },
+  {
+    "pregunta": "¿Río más caudaloso del mundo?",
+    "categoria": "Humanidades",
+    "dificultad": "Medio",
+    "respuesta1": "Nilo",
+    "respuesta2": "Amazonas",
+    "respuesta3": "Misisipi",
+    "respuesta4": "Yangtsé",
+    "respuestaCorrecta": "Amazonas"
+  },
+  {
+    "pregunta": "¿Velocidad de la luz?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "150.000 km/s",
+    "respuesta2": "300.000 km/s",
+    "respuesta3": "1.000 km/s",
+    "respuesta4": "30.000 km/s",
+    "respuestaCorrecta": "300.000 km/s"
+  },
+  {
+    "pregunta": "¿Número de huesos humanos?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "200",
+    "respuesta2": "206",
+    "respuesta3": "210",
+    "respuesta4": "180",
+    "respuestaCorrecta": "206"
+  },
+  {
+    "pregunta": "¿Constante de Planck?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "6.62×10⁻³⁴",
+    "respuesta2": "9.8",
+    "respuesta3": "3×10⁸",
+    "respuesta4": "1.6×10⁻¹⁹",
+    "respuestaCorrecta": "6.62×10⁻³⁴"
+  },
+  {
+    "pregunta": "¿Lenguaje bajo nivel?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "Python",
+    "respuesta2": "Java",
+    "respuesta3": "Assembly",
+    "respuesta4": "PHP",
+    "respuestaCorrecta": "Assembly"
+  },
+  {
+    "pregunta": "¿Autor de La Divina Comedia?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "Petrarca",
+    "respuesta2": "Boccaccio",
+    "respuesta3": "Dante",
+    "respuesta4": "Virgilio",
+    "respuestaCorrecta": "Dante"
+  },
+  {
+    "pregunta": "¿Metal más conductor?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "Cobre",
+    "respuesta2": "Plata",
+    "respuesta3": "Oro",
+    "respuesta4": "Aluminio",
+    "respuestaCorrecta": "Plata"
+  },
+  {
+    "pregunta": "¿Teoría de Einstein?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "Evolución",
+    "respuesta2": "Relatividad",
+    "respuesta3": "Cuántica",
+    "respuesta4": "Gravedad",
+    "respuestaCorrecta": "Relatividad"
+  },
+  {
+    "pregunta": "¿Número atómico del carbono?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "4",
+    "respuesta2": "6",
+    "respuesta3": "8",
+    "respuesta4": "12",
+    "respuestaCorrecta": "6"
+  },
+  {
+    "pregunta": "¿Autor del Leviatán?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "Locke",
+    "respuesta2": "Hobbes",
+    "respuesta3": "Rousseau",
+    "respuesta4": "Hume",
+    "respuestaCorrecta": "Hobbes"
+  },
+  {
+    "pregunta": "¿Hueso del oído?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "Estribo",
+    "respuesta2": "Fémur",
+    "respuesta3": "Radio",
+    "respuesta4": "Cúbito",
+    "respuestaCorrecta": "Estribo"
+  },
+  {
+    "pregunta": "¿Autor de Crimen y Castigo?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "Tolstói",
+    "respuesta2": "Dostoyevski",
+    "respuesta3": "Pushkin",
+    "respuesta4": "Gogol",
+    "respuestaCorrecta": "Dostoyevski"
+  },
+  {
+    "pregunta": "¿Gas noble?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "Nitrógeno",
+    "respuesta2": "Helio",
+    "respuesta3": "Oxígeno",
+    "respuesta4": "Hidrógeno",
+    "respuestaCorrecta": "Helio"
+  },
+  {
+    "pregunta": "¿Año Revolución Francesa?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "1789",
+    "respuesta2": "1776",
+    "respuesta3": "1804",
+    "respuesta4": "1750",
+    "respuestaCorrecta": "1789"
+  },
+  {
+    "pregunta": "¿Fuerza que atrae masas?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "Magnética",
+    "respuesta2": "Gravitatoria",
+    "respuesta3": "Eléctrica",
+    "respuesta4": "Nuclear",
+    "respuestaCorrecta": "Gravitatoria"
+  },
+  {
+    "pregunta": "¿Obra de Maquiavelo?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "El Príncipe",
+    "respuesta2": "Utopía",
+    "respuesta3": "República",
+    "respuesta4": "Contrato Social",
+    "respuestaCorrecta": "El Príncipe"
+  },
+  {
+    "pregunta": "¿Componente amargor cerveza?",
+    "categoria": "General",
+    "dificultad": "Dificil",
+    "respuesta1": "Malta",
+    "respuesta2": "Lúpulo",
+    "respuesta3": "Levadura",
+    "respuesta4": "Agua",
+    "respuestaCorrecta": "Lúpulo"
+  },
+  {
+    "pregunta": "¿Cerveza ácida fermentación mixta?",
+    "categoria": "General",
+    "dificultad": "Dificil",
+    "respuesta1": "Lager",
+    "respuesta2": "Sour",
+    "respuesta3": "Ale",
+    "respuesta4": "Stout",
+    "respuestaCorrecta": "Sour"
+  },
+  {
+    "pregunta": "¿Calentar malta para azúcares?",
+    "categoria": "General",
+    "dificultad": "Dificil",
+    "respuesta1": "Lúpulo",
+    "respuesta2": "Maceración",
+    "respuesta3": "Fermentación",
+    "respuesta4": "Filtrado",
+    "respuestaCorrecta": "Maceración"
+  },
+  {
+    "pregunta": "¿Capital de Mongolia?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "Taskent",
+    "respuesta2": "Ulán Bator",
+    "respuesta3": "Almaty",
+    "respuesta4": "Astaná",
+    "respuestaCorrecta": "Ulán Bator"
+  },
+  {
+    "pregunta": "¿Inventor del teléfono (patente)?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "Tesla",
+    "respuesta2": "Bell",
+    "respuesta3": "Edison",
+    "respuesta4": "Marconi",
+    "respuestaCorrecta": "Bell"
+  },
+  {
+    "pregunta": "¿Año hombre en la Luna?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "1965",
+    "respuesta2": "1969",
+    "respuesta3": "1972",
+    "respuesta4": "1960",
+    "respuestaCorrecta": "1969"
+  },
+  {
+    "pregunta": "¿Autor Cien años de soledad?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "Borges",
+    "respuesta2": "García Márquez",
+    "respuesta3": "Cortázar",
+    "respuesta4": "Vargas Llosa",
+    "respuestaCorrecta": "García Márquez"
+  },
+  {
+    "pregunta": "¿Elemento más abundante universo?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "Oxígeno",
+    "respuesta2": "Hidrógeno",
+    "respuesta3": "Helio",
+    "respuesta4": "Carbono",
+    "respuestaCorrecta": "Hidrógeno"
+  },
+  {
+    "pregunta": "¿Guerra de 1914 a 1918?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "II Guerra Mundial",
+    "respuesta2": "I Guerra Mundial",
+    "respuesta3": "Guerra Fría",
+    "respuesta4": "Guerra Vietnam",
+    "respuestaCorrecta": "I Guerra Mundial"
+  },
+  {
+    "pregunta": "¿Padre del Psicoanálisis?",
+    "categoria": "Ciencia",
+    "dificultad": "Dificil",
+    "respuesta1": "Jung",
+    "respuesta2": "Freud",
+    "respuesta3": "Skinner",
+    "respuesta4": "Pavlov",
+    "respuestaCorrecta": "Freud"
+  },
+  {
+    "pregunta": "¿Número sinfonías Beethoven?",
+    "categoria": "General",
+    "dificultad": "Dificil",
+    "respuesta1": "5",
+    "respuesta2": "9",
+    "respuesta3": "12",
+    "respuesta4": "7",
+    "respuestaCorrecta": "9"
+  },
+  {
+    "pregunta": "¿Cultura Machu Picchu?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "Maya",
+    "respuesta2": "Inca",
+    "respuesta3": "Azteca",
+    "respuesta4": "Olmeca",
+    "respuestaCorrecta": "Inca"
+  },
+  {
+    "pregunta": "¿País del Taj Mahal?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "Tailandia",
+    "respuesta2": "India",
+    "respuesta3": "China",
+    "respuesta4": "Pakistán",
+    "respuestaCorrecta": "India"
+  },
+  {
+    "pregunta": "¿Pintor del Guernica?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "Dalí",
+    "respuesta2": "Picasso",
+    "respuesta3": "Miró",
+    "respuesta4": "Goya",
+    "respuestaCorrecta": "Picasso"
+  },
+  {
+    "pregunta": "¿Año fin II Guerra Mundial?",
+    "categoria": "Humanidades",
+    "dificultad": "Dificil",
+    "respuesta1": "1940",
+    "respuesta2": "1945",
+    "respuesta3": "1939",
+    "respuesta4": "1950",
+    "respuestaCorrecta": "1945"
+  }
+]
