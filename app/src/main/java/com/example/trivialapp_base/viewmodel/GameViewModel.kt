@@ -1,12 +1,13 @@
 package com.example.trivialapp_base.viewmodel
 
+import android.app.Application
 import android.os.CountDownTimer
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
 import com.example.trivialapp_base.model.Pregunta
 import com.example.trivialapp_base.model.ProveedorPreguntas
 
@@ -15,9 +16,11 @@ data class ResultadoPregunta(
     val respuestaUsuario: String
 )
 
-class GameViewModel : ViewModel() {
+class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     private var preguntasPartida: List<Pregunta> = emptyList()
+    var modoJuego by mutableStateOf("Dificultad")
+        private set
     var indicePreguntaActual by mutableIntStateOf(0)
         private set
 
@@ -38,6 +41,9 @@ class GameViewModel : ViewModel() {
 
     var dificultadSeleccionada by mutableStateOf("Facil")
         private set
+    var categoriaSelecionada by mutableStateOf("General")
+        private set
+
 
     var historialResultados by mutableStateOf<List<ResultadoPregunta>>(emptyList())
         private set
@@ -49,11 +55,20 @@ class GameViewModel : ViewModel() {
         dificultadSeleccionada = dificultad
     }
 
+    fun setCategoria(categoria: String) {
+        categoriaSelecionada = categoria
+    }
+
+    fun setModo(modo: String) {
+        modoJuego = modo
+    }
+
     fun iniciarJuego() {
-        preguntasPartida = ProveedorPreguntas.obtenerPreguntas()
-            .filter { it.dificultad == dificultadSeleccionada }
-            .shuffled()
-            .take(10)
+        preguntasPartida = if (modoJuego == "Dificultad") {
+            getPreguntasPartidaByDifficulty(dificultadSeleccionada)
+        } else {
+            getPreguntasPartidaByCategory(categoriaSelecionada)
+        }
 
         puntuacion = 0
         indicePreguntaActual = 0
@@ -61,6 +76,32 @@ class GameViewModel : ViewModel() {
         historialResultados = emptyList()
 
         cargarSiguientePregunta()
+    }
+
+    private fun obtenerTodasLasPreguntas(): List<Pregunta> {
+        // Usamos getApplication() para obtener el contexto necesario para el JSON
+        return ProveedorPreguntas.obtenerPreguntas(getApplication())
+    }
+
+    fun getPreguntasPartidaByDifficulty(difficulty: String): List<Pregunta> {
+        return obtenerTodasLasPreguntas()
+            .filter { it.dificultad == difficulty }
+            .shuffled()
+            .take(10)
+    }
+
+    fun getPreguntasPartidaByCategory(category: String): List<Pregunta> {
+        return obtenerTodasLasPreguntas()
+            .filter { it.categoria == category }
+            .shuffled()
+            .take(10)
+    }
+
+    fun getCategoriesFromQuestions(): List<String> {
+        return obtenerTodasLasPreguntas()
+            .map { it.categoria }
+            .distinct()
+            .sorted()
     }
 
     private fun cargarSiguientePregunta() {
@@ -112,6 +153,7 @@ class GameViewModel : ViewModel() {
             }
         }.start()
     }
+
 
     override fun onCleared() {
         super.onCleared()

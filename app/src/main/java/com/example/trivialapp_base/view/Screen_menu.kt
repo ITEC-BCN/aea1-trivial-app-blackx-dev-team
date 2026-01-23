@@ -20,7 +20,11 @@ import com.example.trivialapp_base.viewmodel.GameViewModel
 @Composable
 fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
     val dificultades = listOf("Facil", "Medio", "Dificil")
-    var expanded by remember { mutableStateOf(false) }
+    val modos = listOf("Categoria", "Dificultad")
+    var dificultyExpanded by remember { mutableStateOf(false) }
+    var categoryExpanded by remember { mutableStateOf(false) }
+    var modeExpanded by remember { mutableStateOf(false) }
+
 
     Column(
         modifier = Modifier
@@ -44,31 +48,87 @@ fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
         )
         Spacer(modifier = Modifier.height(70.dp))
 
-        Text(text = "Selecciona la dificultad:", fontSize = 20.sp)
-        
+        Text(text = "Seleciona el tipo de juego:", fontSize = 20.sp)
         Box {
-            OutlinedButton(onClick = { expanded = true },
+            OutlinedButton(onClick = { modeExpanded = true },
                 modifier = Modifier
                     .fillMaxWidth(0.6f)
                     .height(56.dp))
             {
-                Text(text = viewModel.dificultadSeleccionada, fontSize = 20.sp)
+                Text(text = viewModel.modoJuego, fontSize = 20.sp)
             }
             DropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false }
+                expanded = modeExpanded,
+                onDismissRequest = { modeExpanded = false }
             ) {
-                dificultades.forEach { dificultad ->
+                modos.forEach { modo ->
                     DropdownMenuItem(
-                        text = { Text(dificultad) },
+                        text = { Text(modo) },
                         onClick = {
-                            viewModel.setDificultad(dificultad)
-                            expanded = false
+                            viewModel.setModo(modo)
+                            modeExpanded = false
                         }
                     )
                 }
             }
         }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        if (viewModel.modoJuego == "Dificultad") {
+            Text(text = "Selecciona la dificultad:", fontSize = 20.sp)
+
+            Box {
+                OutlinedButton(onClick = { dificultyExpanded = true },
+                    modifier = Modifier
+                        .fillMaxWidth(0.6f)
+                        .height(56.dp))
+                {
+                    Text(text = viewModel.dificultadSeleccionada, fontSize = 20.sp)
+                }
+                DropdownMenu(
+                    expanded = dificultyExpanded,
+                    onDismissRequest = { dificultyExpanded = false }
+                ) {
+                    dificultades.forEach { dificultad ->
+                        DropdownMenuItem(
+                            text = { Text(dificultad) },
+                            onClick = {
+                                viewModel.setDificultad(dificultad)
+                                dificultyExpanded = false
+                            }
+                        )
+                    }
+                }
+            }
+        } else {
+            Text(text = "Selecciona la categoria:", fontSize = 20.sp)
+
+            Box {
+                OutlinedButton(onClick = { categoryExpanded = true },
+                    modifier = Modifier
+                        .fillMaxWidth(0.6f)
+                        .height(56.dp))
+                {
+                    Text(text = viewModel.categoriaSelecionada, fontSize = 20.sp)
+                }
+                DropdownMenu(
+                    expanded = categoryExpanded,
+                    onDismissRequest = { categoryExpanded = false }
+                ) {
+                    viewModel.getCategoriesFromQuestions().forEach { category ->
+                        DropdownMenuItem(
+                            text = { Text(category) },
+                            onClick = {
+                                viewModel.setCategoria(category)
+                                categoryExpanded = false
+                            }
+                        )
+                    }
+                }
+            }
+        }
+
 
         Spacer(modifier = Modifier.height(32.dp))
 
