@@ -59,18 +59,17 @@ fun ResultScreen(navController: NavController, viewModel: GameViewModel) {
                 ) {
                     Column(
                         modifier = Modifier.padding(16.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(text = "Puntos: ${viewModel.puntuacion}", fontSize = 24.sp, fontWeight = FontWeight.Bold)
                         Text(text = "Aciertos: $aciertos / $totalPreguntas", fontSize = 18.sp)
                         Text(text = "Porcentaje: $porcentaje%", fontSize = 18.sp)
-                        
-                        Spacer(modifier = Modifier.height(16.dp))
-                        
-                        Button(onClick = { navController.navigate(Routes.Menu.route) }) {
-                            Text("Jugar de nuevo")
-                        }
                     }
+                }
+            }
+
+            item {
+                Button(modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp).height(60.dp), onClick = { navController.navigate(Routes.Menu.route) }) {
+                    Text(text = "Jugar de nuevo", fontSize = 30.sp)
                 }
             }
 
