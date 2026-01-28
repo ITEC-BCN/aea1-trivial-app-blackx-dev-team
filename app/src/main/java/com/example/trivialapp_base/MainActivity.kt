@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.trivialapp_base.network.TokenManager
 import com.example.trivialapp_base.ui.theme.TrivialAPP_BaseTheme
 import com.example.trivialapp_base.view.GameScreen
 import com.example.trivialapp_base.view.MenuScreen
@@ -19,6 +20,7 @@ import com.example.trivialapp_base.viewmodel.GameViewModel
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        TokenManager.init(this)
         enableEdgeToEdge()
         setContent {
             TrivialAPP_BaseTheme {
@@ -29,6 +31,7 @@ class MainActivity : ComponentActivity() {
                 Navigation(gameViewModel)
             }
         }
+
     }
 }
 

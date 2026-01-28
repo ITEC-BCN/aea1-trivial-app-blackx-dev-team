@@ -75,7 +75,21 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
     }
 
 
-    if (preguntaActual != null) {
+    if (viewModel.isLoading) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                CircularProgressIndicator()
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(text = "Cargando preguntas...", fontSize = 18.sp)
+            }
+        }
+    } else if (preguntaActual != null) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -155,6 +169,38 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 ) {
                     AnswerButton(text = respuestas.getOrNull(2) ?: "", onClick = { viewModel.responderPregunta(respuestas[2]) }, modifier = Modifier.weight(1f))
                     AnswerButton(text = respuestas.getOrNull(3) ?: "", onClick = { viewModel.responderPregunta(respuestas[3]) }, modifier = Modifier.weight(1f))
+                }
+            }
+        }
+    } else if (!viewModel.juegoTerminado) {
+        // No questions loaded - show error message
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = "No se pudieron cargar las preguntas",
+                    fontSize = 18.sp,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    text = "Por favor, espera un momento e inténtalo de nuevo",
+                    fontSize = 14.sp,
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(modifier = Modifier.height(24.dp))
+                Button(onClick = {
+                    navController.navigate(Routes.Menu.route) {
+                        popUpTo(Routes.Game.route) { inclusive = true }
+                    }
+                }) {
+                    Text("Volver al menú")
                 }
             }
         }
