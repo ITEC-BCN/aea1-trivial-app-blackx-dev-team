@@ -63,6 +63,7 @@ interface TriviaApiService {
         @Query("amount") amount: Int = 10,
         @Query("category") category: Int? = null,
         @Query("difficulty") difficulty: String? = null,
+        @Query("type") type: String = "multiple",
         @Query("token") token: String? = TokenManager.getToken()
     ): QuestionResponse
 }
