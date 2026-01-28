@@ -59,16 +59,16 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
     if (showExitDialog) {
         AlertDialog(
             onDismissRequest = { cancelExit() },
-            title = { Text("¿Salir del juego?") },
-            text = { Text("Se perderá todo el progreso actual.") },
+            title = { Text("Exit game?") },
+            text = { Text("All current progress will be lost.") },
             confirmButton = {
                 TextButton(onClick = { confirmExit() }) {
-                    Text("Salir")
+                    Text("Exit")
                 }
             },
             dismissButton = {
                 TextButton(onClick = { cancelExit() }) {
-                    Text("Cancelar")
+                    Text("Cancel")
                 }
             }
         )
@@ -86,7 +86,7 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
             ) {
                 CircularProgressIndicator()
                 Spacer(modifier = Modifier.height(16.dp))
-                Text(text = "Cargando preguntas...", fontSize = 18.sp)
+                Text(text = "Loading questions...", fontSize = 18.sp)
             }
         }
     } else if (preguntaActual != null) {
@@ -105,7 +105,7 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 IconButton(onClick = { requestExit() }) {
-                    Icon(imageVector = Icons.Default.Close, contentDescription = "Salir")
+                    Icon(imageVector = Icons.Default.Close, contentDescription = "Exit")
                 }
             }
 
@@ -183,13 +183,13 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "No se pudieron cargar las preguntas",
+                    text = "Could not load questions",
                     fontSize = 18.sp,
                     textAlign = TextAlign.Center
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    text = "Por favor, espera un momento e inténtalo de nuevo",
+                    text = "Please wait a moment and try again",
                     fontSize = 14.sp,
                     textAlign = TextAlign.Center,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -200,7 +200,7 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                         popUpTo(Routes.Game.route) { inclusive = true }
                     }
                 }) {
-                    Text("Volver al menú")
+                    Text("Back to menu")
                 }
             }
         }

@@ -60,7 +60,7 @@ fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
                     .fillMaxWidth(0.6f)
                     .height(56.dp))
             {
-                Text(text = viewModel.dificultadSeleccionada, fontSize = 20.sp)
+                Text(text = viewModel.dificultadSeleccionada.replaceFirstChar { it.uppercase() }, fontSize = 20.sp)
             }
             DropdownMenu(
                 expanded = dificultyExpanded,
@@ -78,7 +78,7 @@ fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
             }
         }
 
-        Text(text = "Select la category:", fontSize = 20.sp)
+        Text(text = "Select category:", fontSize = 20.sp)
 
         Box {
             OutlinedButton(onClick = { categoryExpanded = true },

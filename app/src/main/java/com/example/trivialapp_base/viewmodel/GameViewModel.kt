@@ -50,7 +50,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     var juegoTerminado by mutableStateOf(false)
         private set
 
-    var dificultadSeleccionada by mutableStateOf("Facil")
+    var dificultadSeleccionada by mutableStateOf("Easy")
         private set
     var categoriaSelecionada by mutableStateOf("General")
         private set
