@@ -8,8 +8,15 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.trivialapp_base.model.Pregunta
 import com.example.trivialapp_base.model.ProveedorPreguntas
+import com.example.trivialapp_base.network.OTDBApi
+import com.example.trivialapp_base.network.TokenManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 data class ResultadoPregunta(
     val pregunta: Pregunta,
@@ -21,6 +28,10 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private var preguntasPartida: List<Pregunta> = emptyList()
     var modoJuego by mutableStateOf("Dificultad")
         private set
+
+    init {
+        requestAndSaveToken()
+    }
     var indicePreguntaActual by mutableIntStateOf(0)
         private set
 
@@ -39,11 +50,13 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     var juegoTerminado by mutableStateOf(false)
         private set
 
-    var dificultadSeleccionada by mutableStateOf("Facil")
+    var dificultadSeleccionada by mutableStateOf("Easy")
         private set
     var categoriaSelecionada by mutableStateOf("General")
         private set
 
+    var categoriesFromApi by mutableStateOf<List<String>>(emptyList())
+        private set
 
     var historialResultados by mutableStateOf<List<ResultadoPregunta>>(emptyList())
         private set
@@ -63,19 +76,35 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         modoJuego = modo
     }
 
+    var isLoading by mutableStateOf(false)
+        private set
+
     fun iniciarJuego() {
-        preguntasPartida = if (modoJuego == "Dificultad") {
-            getPreguntasPartidaByDifficulty(dificultadSeleccionada)
-        } else {
-            getPreguntasPartidaByCategory(categoriaSelecionada)
+        viewModelScope.launch {
+            isLoading = true
+            preguntasPartida = try {
+                withContext(Dispatchers.IO) {
+                    ProveedorPreguntas.getQuestions(
+                        amount = 10,
+                        category = ProveedorPreguntas.getCategoryIdByName(categoriaSelecionada),
+                        difficulty = dificultadSeleccionada.lowercase()
+                    )
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                emptyList()
+            }
+
+            // Reset game state
+            puntuacion = 0
+            indicePreguntaActual = 0
+            juegoTerminado = false
+            historialResultados = emptyList()
+            isLoading = false
+
+            // Now load the first question after data is ready
+            cargarSiguientePregunta()
         }
-
-        puntuacion = 0
-        indicePreguntaActual = 0
-        juegoTerminado = false
-        historialResultados = emptyList()
-
-        cargarSiguientePregunta()
     }
 
     private fun obtenerTodasLasPreguntas(): List<Pregunta> {
@@ -102,6 +131,21 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             .map { it.categoria }
             .distinct()
             .sorted()
+    }
+
+    fun loadCategoriesFromApi() {
+        viewModelScope.launch {
+            try {
+                // Small delay to avoid rate limiting (HTTP 429)
+                delay(500)
+                val response = withContext(Dispatchers.IO) {
+                    OTDBApi.retrofitService.getCategories()
+                }
+                categoriesFromApi = response.trivia_categories.map { it.name }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 
     private fun cargarSiguientePregunta() {
@@ -152,6 +196,21 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                 responderPregunta("") // Se agota el tiempo, respuesta vacía
             }
         }.start()
+    }
+
+    fun requestAndSaveToken() {
+        viewModelScope.launch {
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    OTDBApi.retrofitService.retrieveSessionToken()
+                }
+                if (response.response_code == 0) {
+                    TokenManager.saveToken(response.token)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 
 

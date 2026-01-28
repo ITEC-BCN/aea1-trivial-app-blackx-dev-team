@@ -19,12 +19,13 @@ import com.example.trivialapp_base.viewmodel.GameViewModel
 
 @Composable
 fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
-    val dificultades = listOf("Facil", "Medio", "Dificil")
-    val modos = listOf("Categoria", "Dificultad")
+    val dificultades = listOf("Easy", "Medium", "Hard")
     var dificultyExpanded by remember { mutableStateOf(false) }
     var categoryExpanded by remember { mutableStateOf(false) }
-    var modeExpanded by remember { mutableStateOf(false) }
 
+    LaunchedEffect(Unit) {
+        viewModel.loadCategoriesFromApi()
+    }
 
     Column(
         modifier = Modifier
@@ -48,83 +49,57 @@ fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
         )
         Spacer(modifier = Modifier.height(70.dp))
 
-        Text(text = "Seleciona el tipo de juego:", fontSize = 20.sp)
+        Spacer(modifier = Modifier.height(20.dp))
+
+
+        Text(text = "Select difficulty:", fontSize = 20.sp)
+
         Box {
-            OutlinedButton(onClick = { modeExpanded = true },
+            OutlinedButton(onClick = { dificultyExpanded = true },
                 modifier = Modifier
                     .fillMaxWidth(0.6f)
                     .height(56.dp))
             {
-                Text(text = viewModel.modoJuego, fontSize = 20.sp)
+                Text(text = viewModel.dificultadSeleccionada.replaceFirstChar { it.uppercase() }, fontSize = 20.sp)
             }
             DropdownMenu(
-                expanded = modeExpanded,
-                onDismissRequest = { modeExpanded = false }
+                expanded = dificultyExpanded,
+                onDismissRequest = { dificultyExpanded = false }
             ) {
-                modos.forEach { modo ->
+                dificultades.forEach { dificultad ->
                     DropdownMenuItem(
-                        text = { Text(modo) },
+                        text = { Text(dificultad) },
                         onClick = {
-                            viewModel.setModo(modo)
-                            modeExpanded = false
+                            viewModel.setDificultad(dificultad.lowercase())
+                            dificultyExpanded = false
                         }
                     )
                 }
             }
         }
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Text(text = "Select category:", fontSize = 20.sp)
 
-        if (viewModel.modoJuego == "Dificultad") {
-            Text(text = "Selecciona la dificultad:", fontSize = 20.sp)
-
-            Box {
-                OutlinedButton(onClick = { dificultyExpanded = true },
-                    modifier = Modifier
-                        .fillMaxWidth(0.6f)
-                        .height(56.dp))
-                {
-                    Text(text = viewModel.dificultadSeleccionada, fontSize = 20.sp)
-                }
-                DropdownMenu(
-                    expanded = dificultyExpanded,
-                    onDismissRequest = { dificultyExpanded = false }
-                ) {
-                    dificultades.forEach { dificultad ->
-                        DropdownMenuItem(
-                            text = { Text(dificultad) },
-                            onClick = {
-                                viewModel.setDificultad(dificultad)
-                                dificultyExpanded = false
-                            }
-                        )
-                    }
-                }
+        Box {
+            OutlinedButton(onClick = { categoryExpanded = true },
+                modifier = Modifier
+                    .fillMaxWidth(0.6f)
+                    .height(56.dp))
+            {
+                Text(text = viewModel.categoriaSelecionada, fontSize = 20.sp)
             }
-        } else {
-            Text(text = "Selecciona la categoria:", fontSize = 20.sp)
-
-            Box {
-                OutlinedButton(onClick = { categoryExpanded = true },
-                    modifier = Modifier
-                        .fillMaxWidth(0.6f)
-                        .height(56.dp))
-                {
-                    Text(text = viewModel.categoriaSelecionada, fontSize = 20.sp)
-                }
-                DropdownMenu(
-                    expanded = categoryExpanded,
-                    onDismissRequest = { categoryExpanded = false }
-                ) {
-                    viewModel.getCategoriesFromQuestions().forEach { category ->
-                        DropdownMenuItem(
-                            text = { Text(category) },
-                            onClick = {
-                                viewModel.setCategoria(category)
-                                categoryExpanded = false
-                            }
-                        )
-                    }
+            DropdownMenu(
+                expanded = categoryExpanded,
+                onDismissRequest = { categoryExpanded = false }
+            ) {
+                viewModel.categoriesFromApi.forEach { category ->
+                    DropdownMenuItem(
+                        text = { Text(category) },
+                        onClick = {
+                            viewModel.setCategoria(category)
+                            categoryExpanded = false
+                        }
+                    )
                 }
             }
         }
@@ -141,7 +116,7 @@ fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
                 .fillMaxWidth(0.6f)
                 .height(56.dp)
         ) {
-            Text(text = "JUGAR", fontSize = 20.sp)
+            Text(text = "PLAY", fontSize = 20.sp)
         }
 
 
@@ -149,7 +124,7 @@ fun MenuScreen(navController: NavController, viewModel: GameViewModel) {
             modifier = Modifier.fillMaxSize()
         ) {
             Text(
-                text = "© Todos los derechos reservados, BlackX dev team",
+                text = "© All rights reserved, BlackX dev team",
                 fontSize = 13.sp,
                 modifier = Modifier
                     .align(Alignment.BottomCenter)

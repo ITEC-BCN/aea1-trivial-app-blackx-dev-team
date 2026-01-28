@@ -34,7 +34,7 @@ fun ResultScreen(navController: NavController, viewModel: GameViewModel) {
         topBar = {
             TopAppBar(
 
-                title = { Text("Resultados") },
+                title = { Text("Results") },
                 navigationIcon = {
                     IconButton(onClick = { navController.navigate(Routes.Menu.route) }) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Menu")
@@ -60,22 +60,22 @@ fun ResultScreen(navController: NavController, viewModel: GameViewModel) {
                     Column(
                         modifier = Modifier.padding(16.dp),
                     ) {
-                        Text(text = "Puntos: ${viewModel.puntuacion}", fontSize = 24.sp, fontWeight = FontWeight.Bold)
-                        Text(text = "Aciertos: $aciertos / $totalPreguntas", fontSize = 18.sp)
-                        Text(text = "Porcentaje: $porcentaje%", fontSize = 18.sp)
+                        Text(text = "Score: ${viewModel.puntuacion}", fontSize = 24.sp, fontWeight = FontWeight.Bold)
+                        Text(text = "Correct: $aciertos / $totalPreguntas", fontSize = 18.sp)
+                        Text(text = "Percentage: $porcentaje%", fontSize = 18.sp)
                     }
                 }
             }
 
             item {
                 Button(modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp).height(60.dp), onClick = { navController.navigate(Routes.Menu.route) }) {
-                    Text(text = "Jugar de nuevo", fontSize = 30.sp)
+                    Text(text = "Play again", fontSize = 30.sp)
                 }
             }
 
             item {
                 Text(
-                    text = "Detalles de la partida",
+                    text = "Game details",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.fillMaxWidth()

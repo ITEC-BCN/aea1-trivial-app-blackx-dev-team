@@ -59,23 +59,37 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
     if (showExitDialog) {
         AlertDialog(
             onDismissRequest = { cancelExit() },
-            title = { Text("¿Salir del juego?") },
-            text = { Text("Se perderá todo el progreso actual.") },
+            title = { Text("Exit game?") },
+            text = { Text("All current progress will be lost.") },
             confirmButton = {
                 TextButton(onClick = { confirmExit() }) {
-                    Text("Salir")
+                    Text("Exit")
                 }
             },
             dismissButton = {
                 TextButton(onClick = { cancelExit() }) {
-                    Text("Cancelar")
+                    Text("Cancel")
                 }
             }
         )
     }
 
 
-    if (preguntaActual != null) {
+    if (viewModel.isLoading) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                CircularProgressIndicator()
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(text = "Loading questions...", fontSize = 18.sp)
+            }
+        }
+    } else if (preguntaActual != null) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -91,7 +105,7 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 IconButton(onClick = { requestExit() }) {
-                    Icon(imageVector = Icons.Default.Close, contentDescription = "Salir")
+                    Icon(imageVector = Icons.Default.Close, contentDescription = "Exit")
                 }
             }
 
@@ -155,6 +169,38 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel) {
                 ) {
                     AnswerButton(text = respuestas.getOrNull(2) ?: "", onClick = { viewModel.responderPregunta(respuestas[2]) }, modifier = Modifier.weight(1f))
                     AnswerButton(text = respuestas.getOrNull(3) ?: "", onClick = { viewModel.responderPregunta(respuestas[3]) }, modifier = Modifier.weight(1f))
+                }
+            }
+        }
+    } else if (!viewModel.juegoTerminado) {
+        // No questions loaded - show error message
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = "Could not load questions",
+                    fontSize = 18.sp,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    text = "Please wait a moment and try again",
+                    fontSize = 14.sp,
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(modifier = Modifier.height(24.dp))
+                Button(onClick = {
+                    navController.navigate(Routes.Menu.route) {
+                        popUpTo(Routes.Game.route) { inclusive = true }
+                    }
+                }) {
+                    Text("Back to menu")
                 }
             }
         }
