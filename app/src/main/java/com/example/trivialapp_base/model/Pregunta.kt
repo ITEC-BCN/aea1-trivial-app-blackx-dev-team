@@ -64,8 +64,8 @@ object ProveedorPreguntas {
 
     suspend fun getQuestions(amount: Int = 10, category: Int? = null, difficulty: String? = null): List<Pregunta> {
         return try {
-            val token = TokenManager.getToken()
-            val response = OTDBApi.retrofitService.getQuestions(amount, category, difficulty, token)
+            val token: String? = TokenManager.getToken()
+            val response = OTDBApi.retrofitService.getQuestions(amount, category, difficulty, token=token)
             response.results.map { question ->
                 Pregunta(
                     pregunta = decodeHtml(question.question),
