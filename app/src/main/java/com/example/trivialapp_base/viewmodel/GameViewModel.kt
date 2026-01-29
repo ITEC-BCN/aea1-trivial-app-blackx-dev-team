@@ -2,6 +2,7 @@ package com.example.trivialapp_base.viewmodel
 
 import android.app.Application
 import android.os.CountDownTimer
+import android.text.Html
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
@@ -80,13 +81,28 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         private set
 
     fun iniciarJuego() {
+        if (isLoading) return
+
         viewModelScope.launch {
             isLoading = true
+            timer?.cancel()
+
+            preguntasPartida = emptyList()
+            preguntaActual = null
+            respuestasMezcladas = emptyList()
+            puntuacion = 0
+            indicePreguntaActual = 0
+            juegoTerminado = false
+            historialResultados = emptyList()
+            tiempoRestante = 1f
+
             preguntasPartida = try {
                 withContext(Dispatchers.IO) {
+                    delay(1500)
+                    val categoryId = ProveedorPreguntas.getCategoryIdByName(categoriaSelecionada)
                     ProveedorPreguntas.getQuestions(
                         amount = 10,
-                        category = ProveedorPreguntas.getCategoryIdByName(categoriaSelecionada),
+                        category = categoryId,
                         difficulty = dificultadSeleccionada.lowercase()
                     )
                 }
@@ -95,20 +111,13 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                 emptyList()
             }
 
-            // Reset game state
-            puntuacion = 0
-            indicePreguntaActual = 0
-            juegoTerminado = false
-            historialResultados = emptyList()
             isLoading = false
 
-            // Now load the first question after data is ready
             cargarSiguientePregunta()
         }
     }
 
     private fun obtenerTodasLasPreguntas(): List<Pregunta> {
-        // Usamos getApplication() para obtener el contexto necesario para el JSON
         return ProveedorPreguntas.obtenerPreguntas(getApplication())
     }
 
@@ -136,12 +145,14 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     fun loadCategoriesFromApi() {
         viewModelScope.launch {
             try {
-                // Small delay to avoid rate limiting (HTTP 429)
-                delay(500)
+                // Longer delay to avoid rate limiting
+                delay(1000)
                 val response = withContext(Dispatchers.IO) {
                     OTDBApi.retrofitService.getCategories()
                 }
-                categoriesFromApi = response.trivia_categories.map { it.name }
+                categoriesFromApi = response.trivia_categories.map {
+                    Html.fromHtml(it.name, Html.FROM_HTML_MODE_LEGACY).toString()
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
